@@ -1,15 +1,18 @@
-import React from 'react'
-import initialMovies from '../consts/initialMovies'
+import { useContext } from 'react'
 import Movie from './Movie'
+import MoviesContext from '../contexts/MoviesContext';
 
 const MovieList = () => {
+	
+	const { movies } = useContext(MoviesContext);
+
   return (
 	 <div className='container'>
 		<div className='row'>
-			{initialMovies.map(movie => (
+			{movies.map(movie => (
 				<div className='col-md-4' key={movie.id}>
 					<Movie
-						movie={movie}
+						movie={ movie }
 					/>
 				</div>
 			))}
@@ -18,4 +21,4 @@ const MovieList = () => {
   )
 }
 
-export default MovieList
+export default MovieList;
