@@ -1,11 +1,19 @@
 import MovieList from "./components/MovieList";
 import Navbar from "./components/Navbar";
+import { MoviesProvider } from "./contexts/MoviesContext";
+import { UserProvider } from "./contexts/UserContext";
 
 function App() {
+
   return (
     <div>
-      <Navbar/>
-      <MovieList/>
+      <UserProvider>
+        <MoviesProvider>
+          <Navbar/>
+          <MovieList/>
+        </MoviesProvider>
+      </UserProvider>
+    
     </div>
   );
 }
